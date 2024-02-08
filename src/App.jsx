@@ -4,8 +4,6 @@ import { Routes, Route, Navigate } from 'react-router-dom'
 import Header from './components/Header'
 import Explore from './components/Explore'
 import MyTrips from './components/MyTrips'
-import Login from './components/Login'
-import Signup from './components/Signup'
 
 function App() {
 
@@ -31,10 +29,7 @@ useEffect(() => {
       <main>
         <Routes>
           <Route path='/' element={<Explore />} />
-          {/* <Route path='mytrips' element={<MyTrips />} /> */}
-          <Route path='/mytrips' element={user ? <MyTrips user={user}/> : <Navigate to="/login"/>} />
-          <Route path='/login' element={user ? <Navigate to="/mytrips"/> : <Login />} />
-          <Route path='/signup' element={user ? <Navigate to="/mytrips"/> : <Signup />} />
+          <Route path='mytrips' element={<MyTrips />} />
         </Routes>
       </main>
     </div>
