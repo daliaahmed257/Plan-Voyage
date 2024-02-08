@@ -42,3 +42,5 @@ Plan Voyage is a Full Stack App that helps you organize your upcoming vacations.
 ***
 
 ### **_Credits_**
+[Costa Rica](https://wanderlog.com/view/wtzefclxts/costa-rica-guide-en)
+[Costa Rica 2](https://www.travelandleisure.com/travel-guide/costa-rica)
