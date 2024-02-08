@@ -9,7 +9,6 @@ const Explore = () => {
         const getPlaces = async () => {
             let res = await Client.get('/explore')
             setPlaces(res.data)
-            console.log(res.data)
         }
         getPlaces()
     }, [])
