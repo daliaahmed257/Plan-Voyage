@@ -5,6 +5,8 @@ import Explore from './components/Explore'
 import MyTrips from './components/MyTrips'
 import SignIn from './components/SignIn'
 import Register from './components/Register'
+import TripForm from './components/TripForm'
+import TripDetails from './components/TripDetails'
 import { CheckSession } from './services/Auth'
 import { useEffect, useState } from 'react'
 
@@ -20,14 +22,11 @@ function App() {
 
   const checkToken = async () => {
     const user = await CheckSession()
-    console.log(user)
     setUser(user)
   }
 
   useEffect(() => {
-    console.log('Checking token on mount...');
     const token = localStorage.getItem('token')
-    console.log('Token:', token);
     // Check if token exists before requesting to validate the token
     if (token) {
       checkToken()
@@ -46,7 +45,9 @@ function App() {
           <Route path='mytrips' element={<MyTrips user={user}/>} />
           <Route path="/signin" element={<SignIn setUser={setUser} />} />
           <Route path="/register" element={<Register />} />
-          <Route path="/"></Route>
+          <Route path='/mytrips/addtrip' element={<TripForm />} />
+          <Route path='/mytrips/:id' element={<TripDetails />} />
+          <Route path='/mytrips/:id/edit' element={<TripForm />} />
         </Routes>
       </main>
     </div>

@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react"
 import Client from "../services/api"
 import { useNavigate } from 'react-router-dom'
+import TripForm from "./TripForm"
+import { Link } from "react-router-dom"
 
 const MyTrips = ({ user }) => {
     let navigate = useNavigate()
@@ -19,14 +21,18 @@ const MyTrips = ({ user }) => {
         <div>
             <div>
                 <h1>Welcome</h1>
-                <button>Start a New Trip</button>
+                <Link to="/mytrips/addtrip">
+                    <button>Start a New Trip</button>
+                </Link>
             </div>
             <div>
                 <h1>My Trips</h1>
                 {trips.map(trip => (
-                    <div key={trip._id}>
+                <Link to={`${trip._id}`} key={trip._id}>
+                    <div className="trip-card">
                         <h3>{trip.country}</h3>
                     </div>
+                </Link>
                 ))}
             </div>
         </div>

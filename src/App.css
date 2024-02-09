@@ -6,6 +6,13 @@ body {
   margin: 0;
 }
 
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* HEADER */
+
 header {
   display: flex;
   align-items: center;
@@ -13,14 +20,18 @@ header {
   background-color: rgb(180, 180, 180);
 }
 
-a {
-  text-decoration: none;
-  color: inherit;
-}
 
 .user-header {
   display: flex;
   gap: 32px;
 }
 
+/* MY TRIPS */
 
+.trip-card {
+  border: 2px solid black;
+}
+
+.trip-card:hover {
+  cursor: pointer;
+}
