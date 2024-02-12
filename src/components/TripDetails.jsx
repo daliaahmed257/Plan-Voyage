@@ -30,12 +30,38 @@ const TripDetails = () => {
         fetchTrip()
     }, [id])
 
+    const getDays = () => {
+        const startDate = new Date(trip.startDate)
+        const endDate = new Date(trip.endDate)
+        const days = []
+        let date = new Date(startDate)
+        console.log(startDate)
+
+        while (date <= endDate) {
+            days.push(
+                <div key={date.toISOString()}>
+                    {date.toDateString()}
+                </div>
+            );
+            date.setDate(date.getDate() + 1)
+        }
+        return days
+    }
+
     return trip ? (
         <div>
-            <h3>{trip.country}</h3>
-            <h3>{trip.city}</h3>
-            <button onClick={deleteTrip}>delete</button>
-            <button onClick={editTrip}>edit</button>
+            <section>
+                <h3>{trip.country}</h3>
+                <h3>{trip.city}</h3>
+                <h3>{trip.startDate}</h3>
+                <h3>{trip.endDate}</h3>
+                <button onClick={deleteTrip}>delete</button>
+                <button onClick={editTrip}>edit</button>
+            </section>
+            <section>
+                <h3>Itinerary</h3>
+                {getDays()}
+            </section>
         </div>
     ) : null
 }

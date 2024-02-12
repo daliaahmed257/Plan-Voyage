@@ -35,3 +35,14 @@ header {
 .trip-card:hover {
   cursor: pointer;
 }
+
+.hero {
+  background-image: url(https://i.imgur.com/pBrBTDs.jpeg);
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 32vmin;
+  width: 100%;
+}

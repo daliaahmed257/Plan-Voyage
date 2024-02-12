@@ -39,8 +39,7 @@ function App() {
         user={user}
         handleLogOut={handleLogOut} 
       />
-      <main>
-        <Routes>
+        <Routes className="main">
           <Route path='/' element={<Explore />} />
           <Route path='mytrips' element={<MyTrips user={user}/>} />
           <Route path="/signin" element={<SignIn setUser={setUser} />} />
@@ -49,7 +48,6 @@ function App() {
           <Route path='/mytrips/:id' element={<TripDetails />} />
           <Route path='/mytrips/:id/edit' element={<TripForm />} />
         </Routes>
-      </main>
     </div>
   )
 }

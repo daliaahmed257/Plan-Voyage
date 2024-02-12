@@ -11,21 +11,24 @@ const MyTrips = ({ user }) => {
 
     useEffect(() => {
         const getTrips = async () => {
-            let res = await Client.get('/mytrips')
+            let res = await Client.get(`/mytrips/user/${user.id}`)
             setTrips(res.data)
         }
         getTrips()
-    }, [])
+    }, [user])
 
     return user ? (
         <div>
-            <div>
-                <h1>Welcome</h1>
+            <div className="hero">
+                <h2>Discover and plan your next trip with ease. Whether youre a seasoned travelor or a first time explorer browse through an array captivating countries to visit and craft your perfect interary.</h2>
                 <Link to="/mytrips/addtrip">
-                    <button>Start a New Trip</button>
+                    <button>Plan a New Trip</button>
+                </Link>
+                <Link to="/">
+                    <button>Explore Countries to Visit</button>
                 </Link>
             </div>
-            <div>
+            <div className="trips-container">
                 <h1>My Trips</h1>
                 {trips.map(trip => (
                 <Link to={`${trip._id}`} key={trip._id}>
