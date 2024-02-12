@@ -9,6 +9,7 @@ import TripForm from './components/TripForm'
 import TripDetails from './components/TripDetails'
 import { CheckSession } from './services/Auth'
 import { useEffect, useState } from 'react'
+import Activities from './components/Activities'
 
 function App() {
 
@@ -47,6 +48,7 @@ function App() {
           <Route path='/mytrips/addtrip' element={<TripForm />} />
           <Route path='/mytrips/:id' element={<TripDetails />} />
           <Route path='/mytrips/:id/edit' element={<TripForm />} />
+          <Route path='/mytrips/:id/activities/:date' element={<Activities />} />
         </Routes>
     </div>
   )

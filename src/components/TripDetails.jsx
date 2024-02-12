@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom"
 import { useState, useEffect } from 'react'
 import Client from "../services/api"
 import { useNavigate } from "react-router-dom"
+import Activities from "./Activities"
 
 const TripDetails = () => {
 
@@ -30,23 +31,31 @@ const TripDetails = () => {
         fetchTrip()
     }, [id])
 
-    const getDays = () => {
-        const startDate = new Date(trip.startDate)
-        const endDate = new Date(trip.endDate)
-        const days = []
-        let date = new Date(startDate)
-        console.log(startDate)
+    const viewDays = (dateString) => {
+        navigate(`/mytrips/${id}/activities/${dateString}`);
+    };
+    
 
-        while (date <= endDate) {
+    const getDays = () => {
+        const startDate = new Date(trip.startDate);
+        const endDate = new Date(trip.endDate);
+        const days = [];
+    
+        let currentDate = new Date(startDate);
+    
+        while (currentDate <= endDate) {
+            const dateString = currentDate.toISOString().split('T')[0]; // Get the date string in 'YYYY-MM-DD' format
             days.push(
-                <div key={date.toISOString()}>
-                    {date.toDateString()}
+                <div key={dateString}>
+                    {currentDate.toDateString()}
+                    <button onClick={() => viewDays(dateString)}>View Activities</button>
                 </div>
             );
-            date.setDate(date.getDate() + 1)
+            currentDate.setDate(currentDate.getDate() + 1);
         }
-        return days
-    }
+        return days;
+    };
+    
 
     return trip ? (
         <div>
