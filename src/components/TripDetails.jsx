@@ -34,13 +34,11 @@ const TripDetails = () => {
     const viewDays = (dateString) => {
         navigate(`/mytrips/${id}/activities/${dateString}`);
     };
-    
 
     const getDays = () => {
         const startDate = new Date(trip.startDate);
         const endDate = new Date(trip.endDate);
         const days = [];
-    
         let currentDate = new Date(startDate);
     
         while (currentDate <= endDate) {
@@ -52,6 +50,7 @@ const TripDetails = () => {
                 </div>
             );
             currentDate.setDate(currentDate.getDate() + 1);
+            console.log(days)
         }
         return days;
     };
@@ -62,8 +61,8 @@ const TripDetails = () => {
             <section>
                 <h3>{trip.country}</h3>
                 <h3>{trip.city}</h3>
-                <h3>{trip.startDate}</h3>
-                <h3>{trip.endDate}</h3>
+                <h3>{new Date (trip.startDate).toISOString().split('T')[0]}</h3>
+                <h3>{new Date (trip.endDate).toISOString().split('T')[0]}</h3>
                 <button onClick={deleteTrip}>delete</button>
                 <button onClick={editTrip}>edit</button>
             </section>
