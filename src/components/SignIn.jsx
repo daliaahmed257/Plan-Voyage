@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom'
 const SignIn = (props) => {
 
   let navigate = useNavigate()
-  
+
   const [formValues, setFormValues] = useState({ email: '', password: '' })
 
   const handleChange = (e) => {
@@ -21,9 +21,15 @@ const SignIn = (props) => {
   }
 
   return (
+    <div className='signin-container'>
+      <div>
+        <h1>Sign In</h1>
+        <br />
+        <br />
         <form onSubmit={handleSubmit}>
           <div>
-            <label htmlFor="email">Email</label>
+            <div><label htmlFor="email">Email:</label></div>
+            <br />
             <input
               onChange={handleChange}
               name="email"
@@ -33,8 +39,10 @@ const SignIn = (props) => {
               required
             />
           </div>
+          <br />
           <div>
-            <label htmlFor="password">Password</label>
+            <div><label htmlFor="password">Password:</label></div>
+            <br />
             <input
               onChange={handleChange}
               type="password"
@@ -43,10 +51,15 @@ const SignIn = (props) => {
               required
             />
           </div>
+          <br />
+          <br />
           <button disabled={!formValues.email || !formValues.password}>
             Sign In
           </button>
         </form>
+      </div>
+    </div>
+
   )
 }
 

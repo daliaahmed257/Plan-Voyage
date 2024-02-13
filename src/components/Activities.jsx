@@ -1,10 +1,12 @@
 import { useState, useEffect } from "react"
 import Client from "../services/api"
-import { useParams } from "react-router-dom"
+import { useParams, useLocation } from "react-router-dom"
 
-const Activities = () => {
+const Activities = ({ id: propId, date: propDate }) => {
 
-    const { id, date } = useParams()
+    const { id: paramsId, date: paramsDate } = useParams();
+    const id = propId || paramsId;
+    const date = propDate || paramsDate;
 
     const [activities, setActivities] = useState([])
 
@@ -13,7 +15,6 @@ const Activities = () => {
             console.log("activities for trip:", id, "on date:", date)
             let res = await Client.get(`/mytrips/${id}/activities/${date}`)
             setActivities(res.data)
-            console.log("Activities fetched:", res.data)
         }
         getActivities()
     }, [id, date])
@@ -27,25 +28,29 @@ const Activities = () => {
     const handleChange = (e) => {
         const { name, value } = e.target;
         setActivity({ ...activity, [name]: value })
-        console.log(activity)
     }
 
     const addActivity = async () => {
         try {
             await Client.post(`/mytrips/${id}/activities/${date}`, activity);
+            setActivities([...activities, activity])
         } catch (error) {
             console.error("Error adding activity:", error.response || error);
         }
     }
 
     const handleSubmit = (e) => {
-        e.preventDefault();
+        e.preventDefault()
         console.log(activity)
         addActivity()
     }
 
+    const renderForm = location.pathname.includes(`/mytrips/${id}/activities/${date}`)
+
     return (
         <div>
+            {renderForm && (
+            <div>
             <h2>Activities for {date}</h2>
             <form onSubmit={handleSubmit} method="POST">
                 <label htmlFor="activity">Activity</label>
@@ -59,6 +64,8 @@ const Activities = () => {
                 <br /><br />
                 <button type="submit">Submit</button>
             </form>
+            </div>
+            )}
             <ul>
                 {activities.map((activity, index) => (
                     <li key={index}>

@@ -6,10 +6,10 @@ const Header = ({ user, handleLogOut }) => {
         userOptions = (
             <div className='user-header'>
                 <Link to="/mytrips">
-                    <h3>My Trips</h3>
+                    <h4>My Trips</h4>
                 </Link>
                 <Link onClick={handleLogOut} to="/">
-                    <h3>Sign Out</h3>
+                    <h4>Sign Out</h4>
                 </Link>
             </div>
         )
@@ -18,9 +18,9 @@ const Header = ({ user, handleLogOut }) => {
     const publicOptions = (
         <div className='user-header'>
             <Link to="register">
-                <h3>Register</h3></Link>
+                <h4>Register</h4></Link>
             <Link to="/signin">
-                <h3>Sign In</h3></Link>
+                <h4>Sign In</h4></Link>
         </div>
     )
 
@@ -28,13 +28,15 @@ const Header = ({ user, handleLogOut }) => {
         <header>
             <Link to="/">
                 <div>
-                    <h1>Plan Voyage</h1>
+                    <h2>Plan Voyage</h2>
                 </div>
             </Link>
-            <Link to="/">
-                <h3>Explore</h3>
-            </Link>
-            {user ? userOptions : publicOptions}
+            <div className='nav-items'>
+                <Link to="/">
+                    <h4>Explore</h4>
+                </Link>
+                {user ? userOptions : publicOptions}
+            </div>
         </header>
     )
 }

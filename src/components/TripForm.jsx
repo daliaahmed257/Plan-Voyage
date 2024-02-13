@@ -14,6 +14,7 @@ const TripForm = () => {
     const [trip, setTrip] = useState({
         country: '',
         city: '',
+        image: 'https://i.imgur.com/oyiaGIJ.jpeg',
         user: user,
         startDate: new Date(),
         endDate: new Date()
@@ -61,6 +62,9 @@ const TripForm = () => {
             <br /><br />
             <label htmlFor="city">City</label>
             <input type="text" name="city" id="city" onChange={handleChange} />
+            <br /><br />
+            <label htmlFor="image">Image</label>
+            <input type="text" name="image" id="image" onChange={handleChange} />
             <br /><br />
             <label htmlFor="startDate">Start Date</label>
             <input type="date" name="startDate" id="startDate" onChange={handleChange}/>

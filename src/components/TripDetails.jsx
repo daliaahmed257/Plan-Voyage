@@ -39,37 +39,51 @@ const TripDetails = () => {
         const startDate = new Date(trip.startDate);
         const endDate = new Date(trip.endDate);
         const days = [];
+        let d = 1
         let currentDate = new Date(startDate);
-    
+
         while (currentDate <= endDate) {
             const dateString = currentDate.toISOString().split('T')[0]; // Get the date string in 'YYYY-MM-DD' format
             days.push(
-                <div key={dateString}>
-                    {currentDate.toDateString()}
-                    <button onClick={() => viewDays(dateString)}>View Activities</button>
+                <div key={dateString} className="days">
+                    <h3 className="day-title">Day {d}</h3>
+                    <div className="dates">
+                        <div>
+                            {currentDate.toDateString()}
+                            <Activities id={id} date={dateString} showForm={false} />
+                        </div>
+                        <i class="material-icons" onClick={() => viewDays(dateString)}>arrow_forward</i>
+                    </div>
                 </div>
             );
             currentDate.setDate(currentDate.getDate() + 1);
-            console.log(days)
+            d = d + 1
         }
         return days;
     };
-    
 
     return trip ? (
         <div>
-            <section>
-                <h3>{trip.country}</h3>
-                <h3>{trip.city}</h3>
-                <h3>{new Date (trip.startDate).toISOString().split('T')[0]}</h3>
-                <h3>{new Date (trip.endDate).toISOString().split('T')[0]}</h3>
-                <button onClick={deleteTrip}>delete</button>
-                <button onClick={editTrip}>edit</button>
+            <section className="trip-hero" style={{ backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(${trip.image})` }}>
+                <div className="trip-hero-content">
+                    <div>
+                        <h1 className="trip-title">{trip.city}, {trip.country}</h1>
+                        <h2>{new Date(trip.startDate).toLocaleDateString('en-US', { month: 'short', day: '2-digit', year: 'numeric' })} - {new Date(trip.endDate).toLocaleDateString('en-US', { month: 'short', day: '2-digit', year: 'numeric' })}</h2>
+                    </div>
+                    <div className="btns">
+                        <button className="trip-btn" onClick={editTrip}>edit</button>
+                        <button className="trip-btn" onClick={deleteTrip}>delete</button>
+                    </div>
+                </div>
             </section>
-            <section>
-                <h3>Itinerary</h3>
-                {getDays()}
+            <section className="container">
+                <div>
+                    <h1>Itinerary</h1>
+                    <br />
+                    {getDays()}
+                </div>
             </section>
+
         </div>
     ) : null
 }
