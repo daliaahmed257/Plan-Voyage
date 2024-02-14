@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import Client from "../services/api"
 import { Link } from "react-router-dom"
 
-const Explore = () => {
+const Explore = ({ user }) => {
 
     const [places, setPlaces] = useState([])
 
@@ -23,9 +23,13 @@ const Explore = () => {
                         <h3>Whether youre a seasoned traveler or a new explore browse through different countries and plan your itinerary</h3>
                     </div>
                     <div className="btns">
-                        <Link to="/mytrips/addtrip">
+                        {user ? (<Link to="/mytrips/addtrip">
                             <button className="hero-btn">Plan a New Trip</button>
                         </Link>
+                        ) : <Link to="/register">
+                            <button className="hero-btn">Plan a New Trip</button>
+                        </Link>
+                        }
                         {/* <Link to="/">
                             <button className="hero-btn">Explore Countries to Visit</button>
                         </Link> */}

@@ -47,12 +47,12 @@ const TripDetails = () => {
             days.push(
                 <div key={dateString} className="days">
                     <h3 className="day-title">Day {d}</h3>
-                    <div className="dates">
+                    <div className="dates" onClick={() => viewDays(dateString)}>
                         <div>
-                            {currentDate.toDateString()}
-                            <Activities id={id} date={dateString} showForm={false} />
+                            <p>{currentDate.toDateString()}</p>
+                            <p className="trip-activity"><Activities id={id} date={dateString} showForm={false} /></p>
                         </div>
-                        <i class="material-icons" onClick={() => viewDays(dateString)}>arrow_forward</i>
+                        <i class="material-icons">arrow_forward</i>
                     </div>
                 </div>
             );

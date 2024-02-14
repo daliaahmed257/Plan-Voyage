@@ -189,14 +189,29 @@ input {
   display: flex;
 }
 
-.day-title, .dates {
-  border: 1px solid black;
+.day-title {
+  background-color: #2c7482;
   padding: 8px;
+  color: white;
+  margin-bottom: 4px;
 }
 
 .dates {
+  border: 1px solid black;
   min-width: 40vmin;
   display: flex;
   justify-content: space-between;
+  padding: 16px;
+  margin-bottom: 4px;
+  gap: 8px
+}
+
+.dates:hover {
+  background-color: #8dae9c;
+}
+
+.trip-activity {
+  padding-left: 16px;
+  margin-top: 8px;
 }
 
