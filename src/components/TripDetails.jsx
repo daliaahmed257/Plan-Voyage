@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react'
 import Client from "../services/api"
 import { useNavigate } from "react-router-dom"
 import Activities from "./Activities"
+import { Link } from "react-router-dom"
 
 const TripDetails = () => {
 
@@ -62,6 +63,14 @@ const TripDetails = () => {
         return days;
     };
 
+    const stayForm = () => {
+        navigate(`/mytrips/${id}/addstay`)
+    }
+
+    const flightForm = () => {
+        navigate(`/mytrips/${id}/addflight`)
+    }
+
     return trip ? (
         <div>
             <section className="trip-hero" style={{ backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(${trip.image})` }}>
@@ -77,6 +86,47 @@ const TripDetails = () => {
                 </div>
             </section>
             <section className="container">
+                <div className='stay-flight-container'>
+                    {trip.stay ? (
+                        <div>
+                            <div>
+                                {trip.stay.map(s => (
+                                    <div className="stay-added">
+                                        <p>Accomodations</p>
+                                        <Link to={s.link} target="_blank" rel="noopener noreferrer" className="title-link">
+                                            <h1>{s.name}</h1>
+                                            <i class="material-icons" style={{ fontSize: '24px' }}>open_in_new</i>
+                                        </Link>
+                                        <p>{new Date(s.startDate).toLocaleDateString('en-US', { month: 'short', day: '2-digit', year: 'numeric' })} - {new Date(s.endDate).toLocaleDateString('en-US', { month: 'short', day: '2-digit', year: 'numeric' })}</p>
+
+                                    </div>
+                                ))}
+                            </div>
+                            <a onClick={stayForm}>+ add another accommodation</a>
+                        </div>
+                    ) : <button>Add Accomodations</button>}
+                    <br />
+                    {trip.flights ? (
+                        <div>
+                            <div>
+                                {trip.flights.map(flight => (
+                                    <div className="stay-added">
+                                        <p>Flight</p>
+                                        <h3>{flight.depCity}
+                                            <span class="material-symbols-outlined">arrow_forward</span>
+                                            {flight.arrCity}
+                                        </h3>
+                                        <p>{flight.date},{flight.depTime} - {flight.arrTime}</p>
+                                        <p>{flight.airline} {flight.flightNum}</p>
+
+                                    </div>
+                                ))}
+                            </div>
+                            <a onClick={flightForm}>+ add another flight</a>
+                        </div>
+                    ) : <button onClick={flightForm}>Add Flight</button>}
+                </div>
+                <br />
                 <div>
                     <h1>Itinerary</h1>
                     <br />

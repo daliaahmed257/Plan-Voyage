@@ -58,14 +58,14 @@ const TripForm = () => {
     return (
         <div className='signin-container'>
             <div>
-                <h1>Add New Trip</h1>
+                <h1>{id ? "Edit Trip" : "Add New Trip"}</h1>
                 <br />
                 <br />
                 <form onSubmit={handleSubmit}>
                     <div>
                         <div><label htmlFor="country">Country:</label></div>
                         <br />
-                        <input type="text" name="country" id="country" onChange={handleChange} />
+                        <input type="text" name="country" id="country" onChange={handleChange}/>
                     </div>
                     <br />
                     <div>

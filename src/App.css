@@ -87,6 +87,7 @@ header {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
 }
 
 .cards-grid {
@@ -163,6 +164,7 @@ input {
   min-height: 20vmin;
   margin-bottom: 32px;
   color: white;
+  padding: 20px 0px;
 }
 
 .trip-hero-content {
@@ -215,3 +217,23 @@ input {
   margin-top: 8px;
 }
 
+.title-link {
+  display: flex;
+  gap: 24px
+}
+
+.stay-added {
+  background-color: #a5c6cd;
+  padding: 24px 40px;
+  border-radius: 8px;
+}
+
+/* activities page */
+.activities-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 60vh;
+  text-align: left;
+}

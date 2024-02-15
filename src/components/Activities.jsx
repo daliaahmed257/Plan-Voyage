@@ -47,11 +47,13 @@ const Activities = ({ id: propId, date: propDate }) => {
 
     const renderForm = location.pathname.includes(`/mytrips/${id}/activities/${date}`)
 
+    const renderStyle = location.pathname.includes(`/mytrips/${id}/activities/${date}`)
+
     return (
-        <div>
+        <div className={renderStyle ? 'activities-container' : ""}>
             {renderForm && (
             <div>
-            <h2>Activities for {date}</h2>
+            <h2>Activities for {new Date(date).toLocaleDateString('en-US', { month: 'short', day: '2-digit', year: 'numeric' })}</h2>
             <form onSubmit={handleSubmit} method="POST">
                 <label htmlFor="activity">Activity</label>
                 <input type="text" name="activity" id="activity" onChange={handleChange}/>
