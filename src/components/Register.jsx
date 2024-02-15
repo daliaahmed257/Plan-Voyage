@@ -1,9 +1,10 @@
 import { useState } from 'react'
 import { RegisterUser } from '../services/Auth'
 import { useNavigate } from 'react-router-dom'
+import { SignInUser } from '../services/Auth'
 
 
-const Register = () => {
+const Register = (props) => {
   let navigate = useNavigate()
   const [formValues, setFormValues] = useState({
     name: '',
@@ -29,6 +30,8 @@ const Register = () => {
       password: '',
       confirmPassword: ''
     })
+    const payload = await SignInUser(formValues)
+    props.setUser(payload)
     navigate('/mytrips')
   }
 

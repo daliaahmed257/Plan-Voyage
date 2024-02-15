@@ -28,7 +28,7 @@ const Header = ({ user, handleLogOut }) => {
         <header>
             <Link to="/">
                 <div>
-                    <h2>Plan Voyage</h2>
+                    <h2>Journey Plan</h2>
                 </div>
             </Link>
             <div className='nav-items'>

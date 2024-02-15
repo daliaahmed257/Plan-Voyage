@@ -47,7 +47,7 @@ function App() {
           <Route path='/' element={<Explore user={user}/>} />
           <Route path='mytrips' element={<MyTrips user={user}/>} />
           <Route path="/signin" element={<SignIn setUser={setUser} />} />
-          <Route path="/register" element={<Register />} />
+          <Route path="/register" element={<Register setUser={setUser} />} />
           <Route path='/mytrips/addtrip' element={<TripForm />} />
           <Route path='/mytrips/:id' element={<TripDetails />} />
           <Route path='/mytrips/:id/edit' element={<TripForm />} />
