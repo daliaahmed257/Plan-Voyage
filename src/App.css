@@ -237,3 +237,9 @@ input {
   height: 60vh;
   text-align: left;
 }
+
+/* Place details */
+
+.place-img {
+  height: 50vmin;
+}

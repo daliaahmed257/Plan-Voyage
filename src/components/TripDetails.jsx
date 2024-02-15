@@ -87,7 +87,7 @@ const TripDetails = () => {
             </section>
             <section className="container">
                 <div className='stay-flight-container'>
-                    {trip.stay ? (
+                    {trip.stay.length > 0 ? (
                         <div>
                             <div>
                                 {trip.stay.map(s => (
@@ -104,9 +104,9 @@ const TripDetails = () => {
                             </div>
                             <a onClick={stayForm}>+ add another accommodation</a>
                         </div>
-                    ) : <button>Add Accomodations</button>}
+                    ) : (<button onClick={stayForm}>Add Accomodations</button>)}
                     <br />
-                    {trip.flights ? (
+                    {trip.flights.length > 0 ? (
                         <div>
                             <div>
                                 {trip.flights.map(flight => (
@@ -124,7 +124,7 @@ const TripDetails = () => {
                             </div>
                             <a onClick={flightForm}>+ add another flight</a>
                         </div>
-                    ) : <button onClick={flightForm}>Add Flight</button>}
+                    ) : (<button onClick={flightForm}>Add Flight</button>)}
                 </div>
                 <br />
                 <div>

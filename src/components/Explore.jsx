@@ -43,11 +43,13 @@ const Explore = ({ user }) => {
                     <div className="cards-grid">
                         <div className="card">
                             {places.map(place => (
+                                <Link to={`/explore/${place._id}`}>
                                 <div key={place._id}>
                                     <div className="img-container"><img className="card-img" src={place.image} alt={place.country} /></div>
                                     <h3>{place.country}</h3>
                                     <p>{place.description}</p>
                                 </div>
+                                </Link>
                             ))}
                         </div>
                     </div>

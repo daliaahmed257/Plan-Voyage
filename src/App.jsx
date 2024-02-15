@@ -12,6 +12,7 @@ import { useEffect, useState } from 'react'
 import Activities from './components/Activities'
 import StayForm from './components/StayForm'
 import FlightForm from './components/FlightForm'
+import PlaceDetails from './components/PlaceDetails'
 
 function App() {
 
@@ -43,7 +44,7 @@ function App() {
         handleLogOut={handleLogOut} 
       />
         <Routes className="main">
-          <Route path='/' element={<Explore />} />
+          <Route path='/' element={<Explore user={user}/>} />
           <Route path='mytrips' element={<MyTrips user={user}/>} />
           <Route path="/signin" element={<SignIn setUser={setUser} />} />
           <Route path="/register" element={<Register />} />
@@ -53,6 +54,7 @@ function App() {
           <Route path='/mytrips/:id/activities/:date' element={<Activities />} />
           <Route path='/mytrips/:id/addstay' element={<StayForm />} />
           <Route path='/mytrips/:id/addflight' element={<FlightForm />} />
+          <Route path='/explore/:id' element={<PlaceDetails />} />
         </Routes>
     </div>
   )
