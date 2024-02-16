@@ -56,8 +56,8 @@ const TripForm = () => {
     }
 
     return (
-        <div className='signin-container'>
-            <div>
+        <div className='flight-form-container' style={{paddingBottom: "120px", backgroundColor: "white"}}>
+            <div className="form-background">
                 <h1>{id ? "Edit Trip" : "Add New Trip"}</h1>
                 <br />
                 <br />

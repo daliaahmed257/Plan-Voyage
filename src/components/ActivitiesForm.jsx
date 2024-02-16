@@ -1,8 +1,11 @@
 import { useState, useEffect } from "react"
 import Client from "../services/api"
 import { useParams, useLocation } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 
 const ActivitiesForm = () => {
+
+    const navigate = useNavigate()
 
     const { id, date } = useParams();
 
@@ -23,6 +26,7 @@ const ActivitiesForm = () => {
         try {
             await Client.post(`/mytrips/${id}/activities/${date}`, activity);
             setActivities([...activities, activity])
+            navigate(`/mytrips/${id}`);
         } catch (error) {
             console.error("Error adding activity:", error.response || error);
         }
@@ -36,7 +40,7 @@ const ActivitiesForm = () => {
 
     return (
 
-        <div className='signin-container'>
+        <div className='form-container'>
             <div className="form-background">
                 <h2>Activities for {new Date(date).toLocaleDateString('en-US', { month: 'short', day: '2-digit', year: 'numeric' })}</h2>
                 <br />

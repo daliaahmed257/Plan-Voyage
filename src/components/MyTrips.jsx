@@ -23,9 +23,11 @@ const MyTrips = ({ user }) => {
     return user ? (
         <div>
             <Hero />
+            <br />
             <div className="container">
                 <div>
-                    <h1>My Trips</h1>
+                    <h2 className="page-title">My Trips</h2>
+                    <br />
                     <br />
                     {trips.length > 0 ? (
                         <div className="cards-grid">
@@ -42,7 +44,7 @@ const MyTrips = ({ user }) => {
                     ) : (
                         <div className="cards-grid">
                             <Link to="/mytrips/addtrip" className="card">
-                                <div className="img-empty-container"><i class="material-icons" style={{ fontSize: '60px', color: '#5f8489' }}>add</i></div>
+                                <div className="img-empty-container"><i className="material-icons" style={{ fontSize: '60px', color: '#5f8489' }}>add</i></div>
                                 <p className="card-title">No Trips Yet</p>
                                 <p className="card-subtitle">Add New</p>
                             </Link>

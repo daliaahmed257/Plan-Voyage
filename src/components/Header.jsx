@@ -8,7 +8,7 @@ const Header = ({ user, handleLogOut }) => {
                 <Link to="/mytrips">
                     <h4>My Trips</h4>
                 </Link>
-                <Link onClick={handleLogOut} to="/">
+                <Link onClick={handleLogOut} to="/signin">
                     <h4>Sign Out</h4>
                 </Link>
             </div>

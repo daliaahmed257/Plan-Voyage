@@ -18,22 +18,24 @@ const Explore = ({ user }) => {
     return (
         <div>
             <Hero />
+            <br />
             <div className="container">
                 <div>
-                    <h1>Explore New Places to Visit</h1>
+                    <h2 className="page-title">Explore New Places to Visit</h2>
+                    <br />
                     <br />
                     <div className="cards-grid">
-                        <div className="card">
-                            {places.map(place => (
+                        {places.map(place => (
+                            <div className="card" key={place._id}>
                                 <Link to={`/explore/${place._id}`}>
                                     <div key={place._id}>
                                         <div className="img-container"><img className="card-img" src={place.image} alt={place.country} /></div>
-                                        <h3>{place.country}</h3>
-                                        <p>{place.description}</p>
+                                        <p className="card-title">{place.country}</p>
+                                        <p className="card-subtitle">{place.description}</p>
                                     </div>
                                 </Link>
-                            ))}
-                        </div>
+                            </div>
+                        ))}
                     </div>
                 </div>
             </div>

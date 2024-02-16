@@ -30,6 +30,7 @@ const Register = (props) => {
       password: '',
       confirmPassword: ''
     })
+    
     const payload = await SignInUser(formValues)
     props.setUser(payload)
     navigate('/mytrips')
@@ -93,11 +94,11 @@ const Register = (props) => {
           </div>
           <br />
           <br />
-          <button
+          <button className="form-btn"
             disabled={
               !formValues.email ||
-              (!formValues.password &&
-                formValues.confirmPassword === formValues.password)
+              (!formValues.password ||
+                formValues.confirmPassword !== formValues.password)
             }
           >
             Sign up

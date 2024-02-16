@@ -5,7 +5,7 @@ import Client from "../services/api"
 const PlaceDetails = () => {
 
     let { id } = useParams()
-     
+
     const [place, setPlace] = useState([])
 
     const fetchPlace = async () => {
@@ -19,9 +19,11 @@ const PlaceDetails = () => {
 
     return (
         <div className="container">
-            <img className="place-img" src={place.image} alt={place.country}/>
-            <h1>{place.city} {place.country}</h1>
-            <p>{place.description}</p>
+            <div className="place-details-container">
+                <h1 className="place-title">{place.city} {place.country} Travel Guide</h1>
+                <img className="place-img" src={place.image} alt={place.country} />
+                <p>{place.description}</p>
+            </div>
         </div>
     )
 }

@@ -31,6 +31,10 @@ button {
   flex-direction: column;
 }
 
+.page-title {
+  text-align: center;
+}
+
 /* HEADER */
 
 header {
@@ -118,9 +122,31 @@ header {
   margin-bottom: 78px;
 }
 
+@media (max-width: 1024px) {
+  .cards-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .card {
+    width: 200px;
+  }
+}
+
+@media (max-width: 690px) {
+  .cards-grid {
+    grid-template-columns: 1fr;
+  }
+  .card {
+    width: 200px;
+  }
+}
+
 .card {
-  width: 32vmin;
+  width: 250px;
   margin-bottom: 20px;
+  -webkit-box-orient: vertical;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  overflow: hidden;
 }
 
 .trip-card:hover {
@@ -128,7 +154,7 @@ header {
 }
 
 .img-container {
-  height: 20vmin;
+  height: 200px;
   margin-bottom: 20px;
 }
 
@@ -144,7 +170,11 @@ header {
   margin-bottom: 4px;
 }
 .card-subtitle {
-  font-size: 12px;
+  overflow: hidden;
+  max-width: 100%;
+  text-overflow: ellipsis;
+  width: fit-content;
+  white-space: nowrap;
 }
 
 .img-empty-container {
@@ -165,9 +195,14 @@ header {
   align-items: center;
   justify-content: center;
   height: 92vh;
-  background-color: #304D56;
+  /* background-color: #304D56; */
   text-align: left;
   color: white;
+  background-image:
+  linear-gradient(rgba(14, 50, 54, 0.30), rgba(14, 50, 54, 0.50)),
+  url(https://i.imgur.com/Kn6haJi.jpeg);
+  background-size: cover;
+  background-position: center;
 }
 
 label {
@@ -337,7 +372,6 @@ input {
     align-items: center;
     gap: 8vmin;
   }
-
 }
 
 .stay-flight-container {
@@ -375,6 +409,7 @@ li {
   border: 1px solid white;
   padding: 48px;
   border-radius: 8px;
+  background-color: #566F72;
 }
 
 .form-container {
@@ -388,6 +423,18 @@ li {
   color: white;
 }
 
+.flight-form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #566F72;
+  text-align: left;
+  color: white;
+  padding-top: 32px;
+  padding-bottom: 70px;
+}
+
 .form-btn {
   background-color: white;
   color: #1E717B;
@@ -398,4 +445,14 @@ li {
 
 .place-img {
   height: 50vmin;
+}
+
+.place-details-container {
+  margin-top: 70px;
+  display: flex;
+  gap: 32px;
+  max-width: 75vmin;
+  text-align: center;
+  flex-direction: column;
+  margin-bottom: 70px;
 }

@@ -75,7 +75,7 @@ const StayForm = () => {
                 </div>
                 <br />
                 <br />
-                <button type="submit">Submit</button>
+                <button className="form-btn" type="submit">Submit</button>
             </form>
         </div>
     </div>

@@ -47,7 +47,7 @@ const FlightForm = () => {
     }
 
     return (
-        <div className='signin-container'>
+        <div className='flight-form-container'>
         <div>
             <h1>Add Flight</h1>
             <br />
@@ -96,7 +96,7 @@ const FlightForm = () => {
                 </div>
                 <br />
                 <br />
-                <button type="submit">Submit</button>
+                <button className="form-btn" type="submit">Submit</button>
             </form>
         </div>
     </div>
