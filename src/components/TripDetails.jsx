@@ -2,8 +2,8 @@ import { useParams } from "react-router-dom"
 import { useState, useEffect } from 'react'
 import Client from "../services/api"
 import { useNavigate } from "react-router-dom"
-import Activities from "./Activities"
 import { Link } from "react-router-dom"
+import Activity from "./Activity"
 
 const TripDetails = () => {
 
@@ -47,13 +47,27 @@ const TripDetails = () => {
             const dateString = currentDate.toISOString().split('T')[0]; // Get the date string in 'YYYY-MM-DD' format
             days.push(
                 <div key={dateString} className="days">
-                    <h3 className="day-title">Day {d}</h3>
-                    <div className="dates" onClick={() => viewDays(dateString)}>
+                    {d > 0 ? (
+                        <div className="day-title">
+                            <h3 id="day">Day</h3>
+                            <h1>0{d}</h1>
+                        </div>
+                    ) : (
+                        <div className="day-title" Í>
+                            <h3 className="day-title">Day</h3>
+                            <h1>0{d}</h1>
+                        </div>
+                    )}
+
+                    <div className="dates">
                         <div>
                             <p>{currentDate.toDateString()}</p>
-                            <p className="trip-activity"><Activities id={id} date={dateString} showForm={false} /></p>
+                            <p className="trip-activity"><Activity id={id} date={dateString} showForm={false} /></p>
                         </div>
-                        <i class="material-icons">arrow_forward</i>
+                        <div className="add-activity-btn" onClick={() => viewDays(dateString)}>
+                            <i class="material-icons" style={{ color: "#304D56", cursor: "pointer", padding: "16px" }}>add</i>
+                        </div>
+
                     </div>
                 </div>
             );
@@ -73,11 +87,11 @@ const TripDetails = () => {
 
     return trip ? (
         <div>
-            <section className="trip-hero" style={{ backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(${trip.image})` }}>
+            <section className="trip-hero" style={{ backgroundImage: `  linear-gradient(rgba(14, 50, 54, 0.60), rgba(14, 50, 54, 0.60)), url(${trip.image})` }}>
                 <div className="trip-hero-content">
                     <div>
                         <h1 className="trip-title">{trip.city}, {trip.country}</h1>
-                        <h2>{new Date(trip.startDate).toLocaleDateString('en-US', { month: 'short', day: '2-digit', year: 'numeric' })} - {new Date(trip.endDate).toLocaleDateString('en-US', { month: 'short', day: '2-digit', year: 'numeric' })}</h2>
+                        <p className="trip-subtitle">{new Date(trip.startDate).toLocaleDateString('en-US', { month: 'short', day: '2-digit', year: 'numeric' })} - {new Date(trip.endDate).toLocaleDateString('en-US', { month: 'short', day: '2-digit', year: 'numeric' })}</p>
                     </div>
                     <div className="btns">
                         <button className="trip-btn" onClick={editTrip}>edit</button>
@@ -85,49 +99,57 @@ const TripDetails = () => {
                     </div>
                 </div>
             </section>
-            <section className="container">
+            <br />
+
+            <section className="container trip-details-content">
+
                 <div className='stay-flight-container'>
+                    <h1>Bookings</h1>
+                    <br />
                     {trip.stay.length > 0 ? (
                         <div>
-                            <div>
+                            <div className="added-card">
                                 {trip.stay.map(s => (
                                     <div className="stay-added">
-                                        <p>Accomodations</p>
-                                        <Link to={s.link} target="_blank" rel="noopener noreferrer" className="title-link">
-                                            <h1>{s.name}</h1>
-                                            <i class="material-icons" style={{ fontSize: '24px' }}>open_in_new</i>
+                                        <Link to={s.link} target="_blank" rel="noopener noreferrer" >
+                                            <p>Accomodations</p>
+                                            <div className="title-link">
+                                                <h1>{s.name}</h1>
+                                                <i class="material-icons" style={{ fontSize: '24px' }}>open_in_new</i>
+                                            </div>
+                                            <p>{new Date(s.startDate).toLocaleDateString('en-US', { month: 'short', day: '2-digit', year: 'numeric' })} - {new Date(s.endDate).toLocaleDateString('en-US', { month: 'short', day: '2-digit', year: 'numeric' })}</p>
                                         </Link>
-                                        <p>{new Date(s.startDate).toLocaleDateString('en-US', { month: 'short', day: '2-digit', year: 'numeric' })} - {new Date(s.endDate).toLocaleDateString('en-US', { month: 'short', day: '2-digit', year: 'numeric' })}</p>
-
                                     </div>
                                 ))}
                             </div>
-                            <a onClick={stayForm}>+ add another accommodation</a>
+                            <a className="add-another" onClick={stayForm}>+ Add another accommodation</a >
                         </div>
-                    ) : (<button onClick={stayForm}>Add Accomodations</button>)}
+                    ) : (<button className="no-booking no-stay-btn" onClick={stayForm}>+ Add Accomodations</button>)}
                     <br />
+
                     {trip.flights.length > 0 ? (
                         <div>
-                            <div>
+                            <div className="added-card added-flight-card">
                                 {trip.flights.map(flight => (
                                     <div className="stay-added">
                                         <p>Flight</p>
-                                        <h3>{flight.depCity}
-                                            <span class="material-symbols-outlined">arrow_forward</span>
-                                            {flight.arrCity}
-                                        </h3>
-                                        <p>{flight.date},{flight.depTime} - {flight.arrTime}</p>
-                                        <p>{flight.airline} {flight.flightNum}</p>
+                                        <div className="flight-card-title">
+                                            <h3>{flight.depCity}</h3>
+                                            <i class="material-icons" style={{ fontSize: '24px' }}>arrow_forward</i>
+                                            <h3>{flight.arrCity}</h3>
+                                        </div>
+                                        <p >{new Date(flight.date).toLocaleDateString('en-US', { month: 'short', day: '2-digit', year: 'numeric' })} : {flight.depTime} - {flight.arrTime}</p>
+                                        <p className="card-subtitle" id="airline">{flight.airline} {flight.flightNum}</p>
 
                                     </div>
                                 ))}
                             </div>
-                            <a onClick={flightForm}>+ add another flight</a>
+                            <a className="add-another" onClick={flightForm}>+ Add another flight</a>
                         </div>
-                    ) : (<button onClick={flightForm}>Add Flight</button>)}
+                    ) : (<button className="no-booking" onClick={flightForm}>+ Add Flight</button>)}
                 </div>
-                <br />
-                <div>
+
+                <div className="get-days-container">
                     <h1>Itinerary</h1>
                     <br />
                     {getDays()}

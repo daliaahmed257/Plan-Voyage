@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import Client from "../services/api"
 import { Link } from "react-router-dom"
+import Hero from "./Hero"
 
 const Explore = ({ user }) => {
 
@@ -16,26 +17,7 @@ const Explore = ({ user }) => {
 
     return (
         <div>
-            <div className="hero explore-hero">
-                <div className="hero-container explore">
-                    <div>
-                        <h2>Discover and plan your next trip with ease</h2>
-                        <h3>Whether youre a seasoned traveler or a new explore browse through different countries and plan your itinerary</h3>
-                    </div>
-                    <div className="btns">
-                        {user ? (<Link to="/mytrips/addtrip">
-                            <button className="hero-btn">Plan a New Trip</button>
-                        </Link>
-                        ) : <Link to="/register">
-                            <button className="hero-btn">Plan a New Trip</button>
-                        </Link>
-                        }
-                        {/* <Link to="/">
-                            <button className="hero-btn">Explore Countries to Visit</button>
-                        </Link> */}
-                    </div>
-                </div>
-            </div>
+            <Hero />
             <div className="container">
                 <div>
                     <h1>Explore New Places to Visit</h1>
@@ -44,11 +26,11 @@ const Explore = ({ user }) => {
                         <div className="card">
                             {places.map(place => (
                                 <Link to={`/explore/${place._id}`}>
-                                <div key={place._id}>
-                                    <div className="img-container"><img className="card-img" src={place.image} alt={place.country} /></div>
-                                    <h3>{place.country}</h3>
-                                    <p>{place.description}</p>
-                                </div>
+                                    <div key={place._id}>
+                                        <div className="img-container"><img className="card-img" src={place.image} alt={place.country} /></div>
+                                        <h3>{place.country}</h3>
+                                        <p>{place.description}</p>
+                                    </div>
                                 </Link>
                             ))}
                         </div>

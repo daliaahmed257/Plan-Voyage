@@ -7,6 +7,7 @@
 body {
   margin: 0;
   padding: 0;
+  font-family: "Inter", sans-serif;
 }
 
 a {
@@ -23,6 +24,13 @@ button {
   cursor: pointer;
 }
 
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
 /* HEADER */
 
 header {
@@ -30,7 +38,7 @@ header {
   align-items: center;
   justify-content: space-between;
   gap: 32px;
-  background-image: url(https://i.imgur.com/pBrBTDs.jpeg);
+  background-color: #566F72;
   color: white;
   padding: 24px 56px;
 }
@@ -47,57 +55,72 @@ header {
 
 /* MY TRIPS */
 
-.hero {
-  background-image: url(https://i.imgur.com/pBrBTDs.jpeg);
+.hero-image {
+  background-image:
+  linear-gradient(rgba(14, 50, 54, 0.30), rgba(14, 50, 54, 0.50)),
+  url(https://i.imgur.com/pBrBTDs.jpeg);
   background-size: cover;
+  background-position: center;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  min-height: 24vmin;
-  margin-bottom: 32px;
+  align-items: center;
+  margin-bottom: 48px;
+  height: 48vmin;
 }
 
 .hero-container {
   color: white;
-  max-width: 60vmin;
+  width: 80vmin;
   display: flex;
   flex-direction: column;
   gap: 16px;
   padding: 16px 0px;
 }
 
-.hero-container>div>h2 {
+.hero-content {
+  color: white;
+  max-width: 70vmin;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 16px 0px;
+}
+
+.hero-content>div>h2 {
   margin-bottom: 4px;
+  font-size: 5vmin;
+  margin-bottom: 12px;
 }
 
 .hero-btn {
-  background-color: transparent;
-  border: 2px solid white;
-  color: white;
-  padding: 8px;
+  background-color: white;
+  color: #1E717B;
+  font-weight: bold;
+  padding: 12px 16px;
   border-radius: 8px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .hero-btn:hover {
   cursor: pointer;
 }
 
-.container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
+.container > div > h1 {
+  text-align: center;
+  margin-bottom: 32px;
 }
 
 .cards-grid {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  gap: 16px;
+  gap: 32px;
+  margin-bottom: 78px;
 }
 
 .card {
-  width: 24vmin;
+  width: 32vmin;
+  margin-bottom: 20px;
 }
 
 .trip-card:hover {
@@ -106,7 +129,7 @@ header {
 
 .img-container {
   height: 20vmin;
-  margin-bottom: 12px;
+  margin-bottom: 20px;
 }
 
 .card-img {
@@ -114,6 +137,24 @@ header {
   height: 100%;
   border-radius: 8px;
   object-fit: cover
+}
+
+.card-title {
+  font-size: 20px;
+  margin-bottom: 4px;
+}
+.card-subtitle {
+  font-size: 12px;
+}
+
+.img-empty-container {
+  height: 20vmin;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  background-color: #cedddf;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* Sign In */
@@ -155,14 +196,13 @@ input {
 }
 
 .trip-hero {
-  background-color: #ffffb5;
-  background-image: linear-gradient(315deg, #ffffb5 0%, #247ba0 74%);
   background-size: cover;
+  background-position: center;
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 20vmin;
-  margin-bottom: 32px;
+  height: 40vmin;
+  margin-bottom: 56px;
   color: white;
   padding: 20px 0px;
 }
@@ -183,33 +223,46 @@ input {
 }
 
 .trip-title {
+  font-size: 6vmin;
+  margin-bottom: 16px
+}
+
+.trip-subtitle {
   font-size: 4vmin;
   margin-bottom: 16px
 }
 
 .days {
   display: flex;
+  gap: 8px;
+  margin-bottom: 8px;
 }
 
 .day-title {
-  background-color: #2c7482;
-  padding: 8px;
+  background-color: #C09B80;
+  padding: 16px;
   color: white;
+  margin-bottom: 4px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#day {
+  font-weight: 500;
   margin-bottom: 4px;
 }
 
 .dates {
   border: 1px solid black;
-  min-width: 40vmin;
   display: flex;
   justify-content: space-between;
   padding: 16px;
   margin-bottom: 4px;
-  gap: 8px
-}
-
-.dates:hover {
-  background-color: #8dae9c;
+  gap: 8px;
+  min-width: 60vmin;
+  flex-shrink: 0;
 }
 
 .trip-activity {
@@ -219,16 +272,79 @@ input {
 
 .title-link {
   display: flex;
-  gap: 24px
+  gap: 24px;
+  margin-top: 20px;
+  margin-bottom: 12px;
 }
 
 .stay-added {
-  background-color: #a5c6cd;
+  background-color: #d0dede;
   padding: 24px 40px;
   border-radius: 8px;
 }
 
-/* activities page */
+.flight-card-title {
+  display: flex;
+  gap: 16px;
+  margin-top: 20px;
+  margin-bottom: 12px;
+}
+
+#airline {
+  margin-top: 16px;
+  font-weight: bold;
+}
+
+.added-card {
+  margin-bottom: 16px;
+}
+
+.added-flight-card {
+  margin-top: 16px;
+}
+
+.add-another {
+  cursor: pointer;
+  font-weight: bold;
+  color: #566F72;
+}
+
+.no-booking {
+  background-color: #d0dede;
+  color: #1E717B;
+  padding: 24px 0;
+  min-width: 250px;
+  font-weight: 500;
+  font-size: 16px;
+}
+
+.no-stay-btn {
+  margin-bottom: 32px;
+}
+
+.trip-details-content {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  margin-bottom: 80px;
+  gap: 20vmin;
+}
+
+@media (max-width: 950px) {
+  .trip-details-content {
+    flex-direction: column;
+    align-items: center;
+    gap: 8vmin;
+  }
+
+}
+
+.stay-flight-container {
+  min-width: 4vmin;
+}
+
+/* activities form page */
 .activities-container {
   display: flex;
   flex-direction: column;
@@ -236,6 +352,46 @@ input {
   justify-content: center;
   height: 60vh;
   text-align: left;
+  width: 80%;
+}
+
+.add-activity-btn:hover {
+  background-color: #d0dede;
+  border-radius: 8px;
+  height: fit-content
+}
+
+/* activity */
+
+.activity {
+  color: #1E717B;
+}
+
+li {
+  margin-bottom: 8px;
+}
+
+.form-background {
+  border: 1px solid white;
+  padding: 48px;
+  border-radius: 8px;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 92vh;
+  background-color: #566F72;
+  text-align: left;
+  color: white;
+}
+
+.form-btn {
+  background-color: white;
+  color: #1E717B;
+  font-weight: bold;
 }
 
 /* Place details */

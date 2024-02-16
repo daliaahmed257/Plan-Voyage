@@ -93,7 +93,7 @@ const TripForm = () => {
                     </div>
                     <br />
                     <br />
-                    <button type="submit">Submit</button>
+                    <button className="form-btn" type="submit">Submit</button>
                 </form>
             </div>
         </div>

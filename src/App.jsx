@@ -9,7 +9,7 @@ import TripForm from './components/TripForm'
 import TripDetails from './components/TripDetails'
 import { CheckSession } from './services/Auth'
 import { useEffect, useState } from 'react'
-import Activities from './components/Activities'
+import ActivitiesForm from './components/ActivitiesForm'
 import StayForm from './components/StayForm'
 import FlightForm from './components/FlightForm'
 import PlaceDetails from './components/PlaceDetails'
@@ -51,7 +51,7 @@ function App() {
           <Route path='/mytrips/addtrip' element={<TripForm />} />
           <Route path='/mytrips/:id' element={<TripDetails />} />
           <Route path='/mytrips/:id/edit' element={<TripForm />} />
-          <Route path='/mytrips/:id/activities/:date' element={<Activities />} />
+          <Route path='/mytrips/:id/activities/:date' element={<ActivitiesForm />} />
           <Route path='/mytrips/:id/addstay' element={<StayForm />} />
           <Route path='/mytrips/:id/addflight' element={<FlightForm />} />
           <Route path='/explore/:id' element={<PlaceDetails />} />
