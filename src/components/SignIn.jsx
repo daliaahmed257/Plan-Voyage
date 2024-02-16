@@ -30,7 +30,7 @@ const SignIn = (props) => {
           <div>
             <div><label htmlFor="email">Email:</label></div>
             <br />
-            <input
+            <input className='signin-input'
               onChange={handleChange}
               name="email"
               type="email"
@@ -43,7 +43,7 @@ const SignIn = (props) => {
           <div>
             <div><label htmlFor="password">Password:</label></div>
             <br />
-            <input
+            <input className='signin-input'
               onChange={handleChange}
               type="password"
               name="password"

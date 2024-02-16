@@ -12,7 +12,6 @@ const Activity = ( { id: propId, date: propDate } ) => {
 
     useEffect(() => {
         const getActivities = async () => {
-            console.log("activities for trip:", id, "on date:", date)
             let res = await Client.get(`/mytrips/${id}/activities/${date}`)
             setActivities(res.data)
         }
@@ -22,8 +21,13 @@ const Activity = ( { id: propId, date: propDate } ) => {
     return (
         <ul>
         {activities.map((activity, index) => (
-            <li key={index}>
-                <a className="activity"  target="_blank" rel="noopener noreferrer" href={activity.link}>{activity.time} - {activity.activity}</a>
+            <li key={activity._id}>
+                {activity.link ? (
+                    <a className="activity"  target="_blank" rel="noopener noreferrer" href={activity.link}>{activity.time} - {activity.activity}</a>
+                ) : (
+                    <span className="activity-no-link">{activity.time} - {activity.activity}</span>
+                )}
+                
             </li>
         ))}
     </ul>

@@ -22,7 +22,7 @@ const MyTrips = ({ user }) => {
 
     return user ? (
         <div>
-            <Hero />
+            <Hero user={user}/>
             <br />
             <div className="container">
                 <div>

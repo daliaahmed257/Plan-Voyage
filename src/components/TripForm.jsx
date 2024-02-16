@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import Client from "../services/api";
 import { useNavigate } from "react-router-dom";
-import { useParams } from "react-router-dom"
+import { useParams } from "react-router-dom";
+import MyTrips from "./MyTrips";
 
 const TripForm = () => {
 
@@ -19,8 +20,6 @@ const TripForm = () => {
         startDate: new Date(),
         endDate: new Date()
     });
-
-    console.log(trip)
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -56,7 +55,7 @@ const TripForm = () => {
     }
 
     return (
-        <div className='flight-form-container' style={{paddingBottom: "120px", backgroundColor: "white"}}>
+        <div className='trip-form-container'>
             <div className="form-background">
                 <h1>{id ? "Edit Trip" : "Add New Trip"}</h1>
                 <br />

@@ -48,7 +48,7 @@ const FlightForm = () => {
 
     return (
         <div className='flight-form-container'>
-        <div>
+        <div className="form-background">
             <h1>Add Flight</h1>
             <br />
             <br />

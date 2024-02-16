@@ -46,7 +46,7 @@ const Register = (props) => {
           <div>
             <div><label htmlFor="name">Name:</label></div>
             <br />
-            <input
+            <input className='signin-input'
               onChange={handleChange}
               name="name"
               type="text"
@@ -59,7 +59,7 @@ const Register = (props) => {
           <div>
             <div><label htmlFor="email">Email:</label></div>
             <br />
-            <input
+            <input className='signin-input'
               onChange={handleChange}
               name="email"
               type="email"
@@ -72,7 +72,7 @@ const Register = (props) => {
           <div>
             <div><label htmlFor="password">Password:</label></div>
             <br />
-            <input
+            <input className='signin-input'
               onChange={handleChange}
               type="password"
               name="password"
@@ -84,7 +84,7 @@ const Register = (props) => {
           <div>
             <div><label htmlFor="confirmPassword">Confirm Password:</label></div>
             <br />
-            <input
+            <input className='signin-input'
               onChange={handleChange}
               type="password"
               name="confirmPassword"

@@ -44,8 +44,8 @@ const StayForm = () => {
     }
 
     return (
-        <div className='signin-container'>
-        <div>
+        <div className='form-container'>
+        <div className="form-background">
             <h1>Add Accomodation</h1>
             <br />
             <br />

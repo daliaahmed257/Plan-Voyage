@@ -34,7 +34,6 @@ const ActivitiesForm = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        console.log(activity)
         addActivity()
     }
 

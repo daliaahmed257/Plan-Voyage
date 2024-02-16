@@ -17,7 +17,7 @@ const Explore = ({ user }) => {
 
     return (
         <div>
-            <Hero />
+            <Hero user={user}/>
             <br />
             <div className="container">
                 <div>

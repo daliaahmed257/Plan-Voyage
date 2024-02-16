@@ -62,10 +62,10 @@ const TripDetails = () => {
                     <div className="dates">
                         <div>
                             <p>{currentDate.toDateString()}</p>
-                            <p className="trip-activity"><Activity id={id} date={dateString} showForm={false} /></p>
+                            <div className="trip-activity" key={`activity-${dateString}`}><Activity id={id} date={dateString} showForm={false} /></div>
                         </div>
                         <div className="add-activity-btn" onClick={() => viewDays(dateString)}>
-                            <i class="material-icons" style={{ color: "#304D56", cursor: "pointer", padding: "16px" }}>add</i>
+                            <i className="material-icons" style={{ color: "#304D56", cursor: "pointer", padding: "16px" }}>add</i>
                         </div>
 
                     </div>
@@ -110,12 +110,12 @@ const TripDetails = () => {
                         <div>
                             <div className="added-card">
                                 {trip.stay.map(s => (
-                                    <div className="stay-added">
+                                    <div className="stay-added" key={s._id}>
                                         <Link to={s.link} target="_blank" rel="noopener noreferrer" >
                                             <p>Accomodations</p>
                                             <div className="title-link">
                                                 <h1>{s.name}</h1>
-                                                <i class="material-icons" style={{ fontSize: '24px' }}>open_in_new</i>
+                                                <i className="material-icons" style={{ fontSize: '24px' }}>open_in_new</i>
                                             </div>
                                             <p>{new Date(s.startDate).toLocaleDateString('en-US', { month: 'short', day: '2-digit', year: 'numeric' })} - {new Date(s.endDate).toLocaleDateString('en-US', { month: 'short', day: '2-digit', year: 'numeric' })}</p>
                                         </Link>
@@ -131,11 +131,11 @@ const TripDetails = () => {
                         <div>
                             <div className="added-card added-flight-card">
                                 {trip.flights.map(flight => (
-                                    <div className="stay-added">
+                                    <div className="stay-added" key={flight._id}>
                                         <p>Flight</p>
                                         <div className="flight-card-title">
                                             <h3>{flight.depCity}</h3>
-                                            <i class="material-icons" style={{ fontSize: '24px' }}>arrow_forward</i>
+                                            <i className="material-icons" style={{ fontSize: '24px' }}>arrow_forward</i>
                                             <h3>{flight.arrCity}</h3>
                                         </div>
                                         <p >{new Date(flight.date).toLocaleDateString('en-US', { month: 'short', day: '2-digit', year: 'numeric' })} : {flight.depTime} - {flight.arrTime}</p>
