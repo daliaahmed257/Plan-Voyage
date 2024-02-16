@@ -6,10 +6,24 @@
 
 ***
 
+### **_Deployment_**
+
+[Plan Journey](https://journeyplan.netlify.app/)
+
+***
+
 ### **_Description_**
 
 Plan Voyage is a Full Stack App that helps you organize your upcoming vacations. Explore destinations or add an itinerary to your planned desitination
+
 ***
+
+### **_Backend_**
+
+()
+
+***
+
 
 ### **_Planning_**
 [Trello board](https://trello.com/invite/b/Uxn4cUpj/ATTId847f7a71ccd88b5b8b7b6e3f260bbe98594F712/plan-voyage)
@@ -42,5 +56,3 @@ Plan Voyage is a Full Stack App that helps you organize your upcoming vacations.
 ***
 
 ### **_Credits_**
-[Costa Rica](https://wanderlog.com/view/wtzefclxts/costa-rica-guide-en)
-[Costa Rica 2](https://www.travelandleisure.com/travel-guide/costa-rica)
