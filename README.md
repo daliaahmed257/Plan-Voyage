@@ -1,4 +1,4 @@
-# Plan Voyage
+# Journey Plan
 
 ## **_Date: 02/06/2024_**
 
@@ -14,7 +14,7 @@
 
 ### **_Description_**
 
-Plan Voyage is a Full Stack App that helps you organize your upcoming vacations. Explore destinations or add an itinerary to your planned desitination
+Journey Plan is a Full Stack App that helps you organize your upcoming vacations. Explore destinations or add an itinerary to your planned desitination
 
 ***
 
