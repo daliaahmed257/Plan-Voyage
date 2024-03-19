@@ -20,11 +20,11 @@ const Explore = ({ user }) => {
             <Hero user={user}/>
             <br />
             <div className="container">
-                <div>
+                <div className="list">
                     <h2 className="page-title">Explore New Places to Visit</h2>
                     <br />
                     <br />
-                    <div className="cards-grid">
+                    <div className="cards-grid cards-grid-explore">
                         {places.map(place => (
                             <div className="card" key={place._id}>
                                 <Link to={`/explore/${place._id}`}>
