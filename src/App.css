@@ -48,10 +48,11 @@ header {
   flex-wrap: wrap;
 }
 
-@media screen and (max-width: 540px) {
+@media screen and (max-width: 555px) {
   header {
     justify-content: center;
     gap: 24px;
+    padding: 24px;
   }
 }
 
@@ -225,7 +226,7 @@ input {
   padding: 8px;
   color: black;
   border-radius: 4px;
-  width: 40vmin;
+  width: 250px;
 }
 
 .signin-input {
@@ -250,7 +251,7 @@ input {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 40vmin;
+  height: 45vh;
   margin-bottom: 56px;
   color: white;
   padding: 20px 0px;
@@ -272,19 +273,22 @@ input {
 }
 
 .trip-title {
-  font-size: 6vmin;
+  font-size: 40px;
   margin-bottom: 16px
 }
 
 .trip-subtitle {
-  font-size: 4vmin;
+  font-size: 24px;
   margin-bottom: 16px
 }
 
-.days {
-  display: flex;
-  gap: 8px;
-  margin-bottom: 8px;
+@media (max-width: 500px) {
+  .trip-title {
+    font-size: 32px;
+  }
+  .trip-subtitle {
+    font-size: 20px;
+  }
 }
 
 .day-title {
@@ -315,6 +319,12 @@ width: 100%;
 
 .get-days-container {
   width: 60vmin;
+}
+
+.days {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 8px;
 }
 
 .trip-activity {
@@ -405,6 +415,7 @@ width: 100%;
 
 .stay-flight-container {
   min-width: 4vmin;
+  margin-bottom: 48px;
 }
 
 /* activities form page */
@@ -443,6 +454,7 @@ li {
   padding: 48px;
   border-radius: 8px;
   background-color: #d0dede;
+  margin: 56px 0;
 }
 
 .form-container {
@@ -493,7 +505,6 @@ li {
 /* trip form */
 
 .trip-form-container {
-  height: 100vh;
   background-color: white;
   display: flex;
   justify-content: center;
@@ -501,10 +512,8 @@ li {
   color: black;
 }
 
-/* explore */
+/* sign up form */
 
-@media screen and (max-width: 691px) {
-  .cards-grid-explore {
-
-  }
+.signup-form {
+  padding: 0 56px;
 }

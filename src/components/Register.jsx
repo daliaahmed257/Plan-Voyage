@@ -38,7 +38,7 @@ const Register = (props) => {
 
   return (
     <div className='signin-container'>
-      <div>
+      <div className='signup-form'>
       <h1>Sign Up to Start Planning a Trip</h1>
         <br />
         <br />
