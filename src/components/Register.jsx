@@ -13,27 +13,39 @@ const Register = (props) => {
     confirmPassword: ''
   })
 
+  const [error, setError] = useState('test error message')
+
   const handleChange = (e) => {
     setFormValues({ ...formValues, [e.target.name]: e.target.value })
   }
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    await RegisterUser({
-      name: formValues.name,
-      email: formValues.email,
-      password: formValues.password
-    })
-    setFormValues({
-      name: '',
-      email: '',
-      password: '',
-      confirmPassword: ''
-    })
-    
-    const payload = await SignInUser(formValues)
-    props.setUser(payload)
-    navigate('/mytrips')
+    try {
+      console.log('Form Values:', formValues);
+      if (formValues.password !== formValues.confirmPassword) {
+        setError('Passwords do not match. Please try again.')
+        console.log('Error message:', error);
+        return
+      }
+      await RegisterUser({
+        name: formValues.name,
+        email: formValues.email,
+        password: formValues.password
+      })
+      setFormValues({
+        name: '',
+        email: '',
+        password: '',
+        confirmPassword: ''
+      })
+
+      const payload = await SignInUser(formValues)
+      props.setUser(payload)
+      navigate('/mytrips')
+    } catch (error) {
+      console.log(error)
+    }
   }
 
   return (
@@ -42,6 +54,7 @@ const Register = (props) => {
       <h1>Sign Up to Start Planning a Trip</h1>
         <br />
         <br />
+        {error && <div className='error-message'>{error}</div>}
         <form onSubmit={handleSubmit}>
           <div>
             <div><label htmlFor="name">Name:</label></div>
@@ -94,13 +107,7 @@ const Register = (props) => {
           </div>
           <br />
           <br />
-          <button className="form-btn"
-            disabled={
-              !formValues.email ||
-              (!formValues.password ||
-                formValues.confirmPassword !== formValues.password)
-            }
-          >
+          <button className="form-btn">
             Sign up
           </button>
         </form>

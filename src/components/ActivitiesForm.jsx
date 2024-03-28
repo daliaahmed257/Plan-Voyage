@@ -58,7 +58,7 @@ const ActivitiesForm = () => {
                     </div>
                     <br />
                     <div>
-                        <div><label htmlFor="time">Start Date</label></div>
+                        <div><label htmlFor="time">Time</label></div>
                         <br />
                         <input type="time" name="time" id="time" onChange={handleChange} />
                     </div>

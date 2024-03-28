@@ -7,6 +7,7 @@ const SignIn = (props) => {
   let navigate = useNavigate()
 
   const [formValues, setFormValues] = useState({ email: '', password: '' })
+  const [error, setError] = useState('')
 
   const handleChange = (e) => {
     setFormValues({ ...formValues, [e.target.name]: e.target.value })
@@ -14,10 +15,15 @@ const SignIn = (props) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    const payload = await SignInUser(formValues)
-    setFormValues({ email: '', password: '' })
-    props.setUser(payload)
-    navigate('/mytrips')
+    try {
+      const payload = await SignInUser(formValues)
+      setFormValues({ email: '', password: '' })
+      props.setUser(payload)
+      navigate('/mytrips')
+    }
+    catch (error) {
+      setError('Incorrect email or password. Please try again.')
+    }
   }
 
   return (
@@ -25,7 +31,10 @@ const SignIn = (props) => {
       <div>
         <h1>Sign In</h1>
         <br />
+        <p>or <a className="text-link" href="/register">create a new account</a></p>
         <br />
+        <br />
+        {error && <div className='error-message'>{error}</div>}
         <form onSubmit={handleSubmit}>
           <div>
             <div><label htmlFor="email">Email:</label></div>

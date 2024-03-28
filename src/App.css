@@ -15,6 +15,14 @@ a {
   color: inherit;
 }
 
+.text-link {
+  color: #94cefa;
+}
+
+.text-link:hover {
+  text-decoration: underline;
+}
+
 button {
   padding: 8px 20px;
   border-radius: 8px;
@@ -117,6 +125,8 @@ header {
 
 .hero-btn:hover {
   cursor: pointer;
+  background-color: #1E717B;
+  color: white;
 }
 
 .container > div > h1 {
@@ -215,6 +225,10 @@ header {
   background-position: center;
 }
 
+.signin-container > div {
+  padding: 0 56px;
+}
+
 label {
   width: 100px;
   margin-right: 24px;
@@ -232,6 +246,11 @@ input {
 .signin-input {
   border: 1px solid white;
   color: white;
+}
+
+.error-message {
+  color: rgb(249, 228, 159);
+  margin-bottom: 32px;
 }
 
 /* TRIP DETAILS */
@@ -484,6 +503,11 @@ li {
   background-color: white;
   color: #1E717B;
   font-weight: bold;
+}
+
+.form-btn:hover {
+  background-color: #1E717B;
+  color: white;
 }
 
 /* Place details */
