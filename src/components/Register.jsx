@@ -13,7 +13,7 @@ const Register = (props) => {
     confirmPassword: ''
   })
 
-  const [error, setError] = useState('test error message')
+  const [error, setError] = useState('')
 
   const handleChange = (e) => {
     setFormValues({ ...formValues, [e.target.name]: e.target.value })
