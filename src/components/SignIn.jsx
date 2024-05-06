@@ -6,7 +6,7 @@ const SignIn = (props) => {
 
   let navigate = useNavigate()
 
-  const [formValues, setFormValues] = useState({ email: '', password: '' })
+  const [formValues, setFormValues] = useState({ email: 'demo@gmail.com', password: 'demo123' })
   const [error, setError] = useState('')
 
   const handleChange = (e) => {
@@ -66,6 +66,8 @@ const SignIn = (props) => {
             Sign In
           </button>
         </form>
+
+
       </div>
     </div>
 
